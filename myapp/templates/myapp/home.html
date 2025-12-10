@@ -1,32 +1,30 @@
 {% extends 'myapp/base.html' %}
 
-{% block title %}Home - Marq Johann A. Marqueta{% endblock %}
+{% block title %}Home - Marq Johann{% endblock %}
 
 {% block content %}
 
 <!-- Hero Section -->
 <section>
-    <h2>Welcome to my modern and interactive portfolio website built with Django!</h2>
-    <hr>
+    <h2>Welcome to my portfolio</h2>
+    <p>I'm a passionate web developer and designer creating modern, responsive, and user-friendly applications.</p>
 </section>
 
 <!-- About Section -->
 <section>
     <h2>About Me</h2>
     <article>
-        <p>Hello! I'm Marq Johann Marqueta, a passionate web developer and designer. I enjoy creating modern, responsive, and user-friendly websites and applications. I am always eager to learn new technologies and improve my skills.</p>
+        <p>Hello! I'm Marq Johann Marqueta, a web developer from STI College Sta Maria, Section BT 2-102. I enjoy building modern web applications and exploring new technologies.</p>
         
         <details>
-            <summary><strong>Personal Information</strong></summary>
-            <p>School: STI College Sta Maria</p>
-            <p>Section: BT 2-102</p>
-            <p>Birthday: June 3, 2006</p>
-            <p>Age: 19</p>
+            <summary>Personal Information</summary>
+            <p><strong>School:</strong> STI College Sta Maria</p>
+            <p><strong>Section:</strong> BT 2-102</p>
+            <p><strong>Birthday:</strong> June 3, 2006</p>
+            <p><strong>Age:</strong> 19</p>
         </details>
     </article>
 </section>
-
-<hr>
 
 <!-- Skills Section -->
 <section>
@@ -35,40 +33,30 @@
     <article>
         <h3>Backend Development</h3>
         <ul>
-            <li>Python</li>
-            <li>Django</li>
+            <li>Python & Django</li>
             <li>Database Management</li>
+            <li>RESTful APIs</li>
         </ul>
     </article>
     
     <article>
         <h3>Frontend Development</h3>
         <ul>
-            <li>HTML</li>
-            <li>CSS</li>
+            <li>HTML & Semantic Markup</li>
+            <li>CSS & Responsive Design</li>
             <li>JavaScript</li>
         </ul>
-        <p><small>Designing responsive and interactive web pages.</small></p>
-    </article>
-    
-    <article>
-        <h3>Version Control</h3>
-        <ul>
-            <li>Git</li>
-            <li>GitHub</li>
-        </ul>
-        <p><small>Version control and collaboration using Git and GitHub.</small></p>
     </article>
 
     <article>
-        <h3>Other Skills</h3>
+        <h3>Tools & Platforms</h3>
         <ul>
-            <li>Wind Instruments</li>
+            <li>Git & GitHub</li>
+            <li>Version Control</li>
+            <li>Web Deployment</li>
         </ul>
     </article>
 </section>
-
-<hr>
 
 <!-- Projects Section -->
 <section>
@@ -81,45 +69,40 @@
             <p>{{ project.description }}</p>
             <p><strong>Technologies:</strong> {{ project.technologies }}</p>
             <p><strong>Date:</strong> {{ project.created_at|date:"F d, Y" }}</p>
-            <div>
+            <p>
                 {% if project.link %}
-                <a href="{{ project.link }}" target="_blank">[Live]</a>
+                <a href="{{ project.link }}" target="_blank">Visit</a> •
                 {% endif %}
                 {% if project.github_link %}
-                <a href="{{ project.github_link }}" target="_blank">[GitHub]</a>
+                <a href="{{ project.github_link }}" target="_blank">Source Code</a> •
                 {% endif %}
-                <a href="{% url 'myapp:project_detail' project.id %}">[More Info]</a>
-            </div>
-            <br>
+                <a href="{% url 'myapp:project_detail' project.id %}">Details</a>
+            </p>
         </article>
         {% endfor %}
     {% else %}
     <article>
-        <p><strong>Portfolio Website</strong></p>
-        <p>My personal website showcasing my skills, projects, and experiences.</p>
+        <p>No featured projects yet. Check back soon!</p>
     </article>
     {% endif %}
 </section>
 
-<hr>
-
 <!-- Hobbies Section -->
 <section>
-    <h2>Hobbies & Interests</h2>
+    <h2>Interests</h2>
     <ul>
-        <li>Reading Manhwa / Manhua</li>
+        <li>Reading Manhwa & Manhua</li>
         <li>Watching Anime</li>
         <li>Listening to Music</li>
+        <li>Wind Instruments</li>
     </ul>
 </section>
 
-<hr>
-
 <!-- Contact Section -->
 <section>
-    <h2>Contact Me</h2>
-    <p>If you want to get in touch, send me an email at:</p>
-    <p><a href="mailto:marqjohannmarqueta@gmail.com"><strong>marqjohannmarqueta@gmail.com</strong></a></p>
+    <h2>Get in Touch</h2>
+    <p>Feel free to reach out via email:</p>
+    <p><a href="mailto:marqjohannmarqueta@gmail.com">marqjohannmarqueta@gmail.com</a></p>
 </section>
 
 {% endblock %}
