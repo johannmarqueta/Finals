@@ -3,4 +3,5 @@ services:
     env: python
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: bash /opt/render/project/src/start.sh
+    preDeployCommand: python manage.py migrate
+    startCommand: gunicorn myproject.wsgi:application --bind 0.0.0.0:$PORT --workers 1
