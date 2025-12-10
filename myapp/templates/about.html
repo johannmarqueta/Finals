@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}About Me - Portfolio{% endblock %}
+
+{% block content %}
+<section>
+    {% if about %}
+    <article>
+        <h1>{{ about.title }}</h1>
+        <p><strong>Email:</strong> {{ about.email }}</p>
+        
+        <h2>Bio</h2>
+        <p>{{ about.bio }}</p>
+        
+        <h2>Connect</h2>
+        <ul>
+            {% if about.github_url %}
+            <li><a href="{{ about.github_url }}" target="_blank">GitHub</a></li>
+            {% endif %}
+            {% if about.linkedin_url %}
+            <li><a href="{{ about.linkedin_url }}" target="_blank">LinkedIn</a></li>
+            {% endif %}
+            {% if about.twitter_url %}
+            <li><a href="{{ about.twitter_url }}" target="_blank">Twitter</a></li>
+            {% endif %}
+        </ul>
+    </article>
+    {% else %}
+    <article>
+        <h1>About</h1>
+        <p>About section coming soon!</p>
+    </article>
+    {% endif %}
+</section>
+{% endblock %}

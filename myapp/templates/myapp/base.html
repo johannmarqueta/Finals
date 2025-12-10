@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Portfolio{% endblock %}</title>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <nav>
+            <div>
+                <h1>Marq Johann A. Marqueta</h1>
+                <p><small>Web Developer & Designer</small></p>
+            </div>
+            <ul>
+                <li><a href="{% url 'myapp:home' %}">Home</a></li>
+                <li><a href="{% url 'myapp:portfolio' %}">Projects</a></li>
+                <li><a href="{% url 'myapp:about' %}">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <hr>
+        <p><small>&copy; 2025 Marq Johann A. Marqueta. All rights reserved.</small></p>
+        <p><small>Built with Django | <a href="https://github.com">GitHub</a></small></p>
+    </footer>
+</body>
+</html>

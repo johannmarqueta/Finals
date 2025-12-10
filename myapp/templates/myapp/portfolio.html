@@ -1,0 +1,50 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Projects - Marq Johann A. Marqueta{% endblock %}
+
+{% block content %}
+
+<section>
+    <h2>My Projects</h2>
+    <p><small>Collection of my recent projects and work</small></p>
+</section>
+
+<hr>
+
+{% if projects %}
+<section>
+    {% for project in projects %}
+    <article>
+        <h3>{{ project.title }}</h3>
+        
+        <p>{{ project.description }}</p>
+        
+        <details>
+            <summary><strong>Project Details</strong></summary>
+            <p><strong>Technologies:</strong> {{ project.technologies }}</p>
+            <p><strong>Created:</strong> {{ project.created_at|date:"F d, Y" }}</p>
+        </details>
+        
+        <div>
+            <a href="{% url 'myapp:project_detail' project.id %}">[View Details]</a>
+            {% if project.link %}
+            <a href="{{ project.link }}" target="_blank">[Live Demo]</a>
+            {% endif %}
+            {% if project.github_link %}
+            <a href="{{ project.github_link }}" target="_blank">[Source Code]</a>
+            {% endif %}
+        </div>
+        
+        <hr>
+    </article>
+    {% endfor %}
+</section>
+{% else %}
+<section>
+    <article>
+        <p><em>No projects yet. <a href="{% url 'myapp:home' %}">Go back home</a></em></p>
+    </article>
+</section>
+{% endif %}
+
+{% endblock %}
