@@ -138,3 +138,11 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Gunicorn configuration
+# https://docs.gunicorn.org/en/stable/settings.html
+
+bind = f"0.0.0.0:{os.environ.get('PORT', '8000')}"
+workers = 3
+worker_class = 'sync'
+timeout = 30
