@@ -5,7 +5,10 @@ from .models import Project, About
 
 def home(request):
     """Display home page with featured projects"""
-    featured_projects = Project.objects.filter(featured=True)
+    try:
+        featured_projects = Project.objects.filter(featured=True)
+    except Exception:
+        featured_projects = []
     context = {
         'featured_projects': featured_projects,
     }
